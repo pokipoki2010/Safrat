@@ -51,7 +51,7 @@
 <div class="container w3-teal bg-info" style="padding-top: 0%;">
 <form action="{% url 'booking' %}" method="post" style="padding: 50px; margin-left: 120px;">
     {% csrf_token %}
-<select name="from_station" value="From" class="custom-select" style="font-size: 20px;">
+<select name="from_station" value="From" class="custom-select" style="font-size: 20px; ">
         <option selected hidden>From</option>
     {% for station in stations %}
         <option value="{{station.id}}">{{station}}</option>
@@ -85,7 +85,7 @@
 </select-->
 
 
- <input data-date-format="dd/mm/yyyy" id="datepicker" style="font-size: 20px;">
+ <input data-date-format="dd/mm/yyyy" id="datepicker" class="custom-select" style="font-size: 20px; width: 140px;">
 
 
 <input type="submit" value ="Search" class="btn btn-primary">
