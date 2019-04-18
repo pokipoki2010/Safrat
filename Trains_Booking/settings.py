@@ -25,7 +25,7 @@ SECRET_KEY = '5@u0__$*ap9%y^8w^vl4_8kk=s4c-es2#$q8c129213=@6tm-4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'details',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [

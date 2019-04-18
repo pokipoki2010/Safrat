@@ -1,7 +1,8 @@
 from django.db import models
 from datetime import datetime
 from django.core.exceptions import ValidationError
-
+from django.core.validators import MaxValueValidator, MinValueValidator
+from psycopg2.extras import NumericRange
 
 # Create your models here.
 def validate_string(value):
@@ -39,8 +40,9 @@ class Trip(models.Model):
     end_time_date = models.DateTimeField()
     price = models.DecimalField(max_digits=10, decimal_places=2)
 
+
     def __str__(self):
-        return "{}".format(self.end_station)
+        return "Start: {} - End: {} - Train: {}".format(self.start_station, self.end_station, self.train)
 
 
 
@@ -57,16 +59,30 @@ class Ticket(models.Model):
     last_name = models.CharField(validators=[validate_string], null=True, max_length=100, blank=False)
     email = models.EmailField(max_length=70,blank=True, null= True)
     gender = models.CharField(max_length=1, choices=GENDER)
+    #number_of_tickets = models.PositiveIntegerField(default=1, choices=TICKETS_NUMBER)
 
     def __str__(self):
         return "{}".format(self.first_name)
 
 
 
-
-
-
-
+class Passenger(models.Model):
+    TICKETS_NUMBER = (
+        (1,'1'),
+        (2,'2'),
+        (3,'3'),
+        (4,'4'),
+        (5,'5'),
+        (6,'6'),
+        (7,'7'),
+        (8,'8'),
+        (9,'9'),
+    )
+    
+    
+    number_of_tickets = models.IntegerField(default=1, choices=TICKETS_NUMBER)
+    def __str__(self):
+        return "{}".format(self.number_of_tickets)
 
 
 
