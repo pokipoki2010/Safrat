@@ -6,8 +6,8 @@ def homepage(request):
 	stations = Station.objects.all()
 	tickets = Ticket.objects.all()
 	passengers = Passenger.objects.all()
-
-	return render(request,'homepage.html',{'stations': stations, 'tickets': tickets, 'passengers': passengers})
+	context = {'station': stations, 'ticket': tickets, 'passenger': passengers}
+	return render(request,'homepage.html', context)
 
 
 #def about(request):

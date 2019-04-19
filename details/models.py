@@ -2,7 +2,7 @@ from django.db import models
 from datetime import datetime
 from django.core.exceptions import ValidationError
 from django.core.validators import MaxValueValidator, MinValueValidator
-from psycopg2.extras import NumericRange
+
 
 # Create your models here.
 def validate_string(value):
@@ -80,9 +80,10 @@ class Passenger(models.Model):
     )
     
     
-    number_of_tickets = models.IntegerField(default=1, choices=TICKETS_NUMBER)
+    tickets_number = models.IntegerField(default=1, choices=TICKETS_NUMBER)
+
     def __str__(self):
-        return "{}".format(self.number_of_tickets)
+        return "{}".format(self.tickets_number)
 
 
 

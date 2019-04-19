@@ -51,24 +51,24 @@
 <div class="container w3-teal bg-info" style="padding-top: 0%;">
 <form action="{% url 'booking' %}" method="post" style="padding: 50px; margin-left: 120px;">
     {% csrf_token %}
-<select name="from_station" value="From" class="custom-select" style="font-size: 20px;">
+<select name="from_station" value="From" class="custom-select" style="font-size: 20px; ">
         <option selected hidden>From</option>
-    {% for station in stations %}
+    {% for station in station %}
         <option value="{{station.id}}">{{station}}</option>
     {% endfor %}    
 </select>
 <select  name="to_station" value="To" class="custom-select" style="font-size: 20px;">
         <option selected hidden>To</option>
-    {% for station in stations %}
+    {% for station in station %}
         <option value="{{station.id}}">{{station}}</option>
     {% endfor %}    
 </select>
 
 <select  name="Passenger" value="Passenger" class="custom-select" style="font-size: 20px;">
         <option selected hidden>Passengers</option>
-    {% for passenger in passengers %}
-        <option value="{{passenger.id}}">{{passenger.number_of_tickets}}</option>
-    {% endfor %}    
+    {% for passenger in passenger %}
+    <option value="{{passenger.id}}">{{passenger.tickets_number}}</option>
+    {% endfor %}
 </select>
 
 <!--select  name="passengers" value="Passengers" class="custom-select" style="font-size: 20px;">
@@ -85,7 +85,7 @@
 </select-->
 
 
- <input data-date-format="dd/mm/yyyy" id="datepicker" style="font-size: 20px;">
+ <input data-date-format="dd/mm/yyyy" id="datepicker" class="custom-select" style="font-size: 20px; width: 140px;">
 
 
 <input type="submit" value ="Search" class="btn btn-primary">
