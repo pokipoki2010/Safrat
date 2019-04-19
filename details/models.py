@@ -59,7 +59,6 @@ class Ticket(models.Model):
     last_name = models.CharField(validators=[validate_string], null=True, max_length=100, blank=False)
     email = models.EmailField(max_length=70,blank=True, null= True)
     gender = models.CharField(max_length=1, choices=GENDER)
-    #number_of_tickets = models.PositiveIntegerField(default=1, choices=TICKETS_NUMBER)
 
     def __str__(self):
         return "{}".format(self.first_name)
@@ -81,7 +80,7 @@ class Passenger(models.Model):
     
     
     tickets_number = models.IntegerField(default=1, choices=TICKETS_NUMBER)
-
+    #ticket_ptr = models.OneToOneField(null=True, auto_created=True, default='', on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=False, serialize=False, to='details.Ticket')
     def __str__(self):
         return "{}".format(self.tickets_number)
 
