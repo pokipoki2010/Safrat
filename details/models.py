@@ -80,9 +80,10 @@ class Passenger(models.Model):
     )
     
     
-    number_of_tickets = models.IntegerField(default=1, choices=TICKETS_NUMBER)
+    tickets_number = models.IntegerField(default=1, choices=TICKETS_NUMBER)
+
     def __str__(self):
-        return "{}".format(self.number_of_tickets)
+        return "{}".format(self.tickets_number)
 
 
 
