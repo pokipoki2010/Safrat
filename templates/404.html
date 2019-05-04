@@ -26,9 +26,11 @@
 </head>
 
 <body>
-	{% load static %}
-<img src="{% static 'img/text.png' %}" alt="My image">
-<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'style.css' %}" /> 
+<img src="{% static 'text.png' %}" alt="My image">
+
 
 	<div id="notfound">
 		<div class="notfound">
