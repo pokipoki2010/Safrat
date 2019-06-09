@@ -17,6 +17,7 @@ def details_page(request):
     elif request.method == 'POST':
         end_station_id = request.POST.get('to_station')
     #print(request.GET.get('to_station'))
+    #Ticket.objects.filter(pk__in=[1,2,3,4,5,6,7,8,9])
     trips = Trip.objects.filter(end_station_id=end_station_id)
     context = {'trips' : trips}
     return render(request, 'details/details.html', context)
@@ -34,13 +35,20 @@ def trips_page(request, trip_id):
         gender = request.POST.get('gender')
         ticket = Ticket(trip=trip,first_name=first_name, middle_name=middle_name,
             last_name=last_name, email=email,gender=gender)
-        try:
-            ticket.full_clean()
-            ticket.save()
-            return redirect('tickets',ticket_id=ticket.id)
-        except ValidationError as e:
-            error = dict(e)
-            print(e)
+        ticket_count = request.POST.get('ticket_count', 1)
+        tickets_ids = []
+        for i in range(ticket_count):
+            try:
+                ticket.full_clean()
+                ticket.save()
+                tickets_ids.append(i)
+                return redirect('tickets',ticket_id=ticket.id)
+            except ValidationError as e:
+                error = dict(e)
+                print(e)
+        if error is None:
+            return redirect('tickets', tickets_ids=tickets_ids)
+                  
     context = {'trip' : trip, 'error':error, 'ticket':ticket }
     return render(request, 'details/trips.html', context)
         

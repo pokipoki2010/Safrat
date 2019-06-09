@@ -64,13 +64,18 @@
     {% endfor %}    
 </select>
 
-<select  name="Passenger" value="Passenger" class="custom-select" style="font-size: 20px;">
+<!--select  name="Passenger" value="Passenger" class="custom-select" style="font-size: 20px;">
         <option selected hidden>Passengers</option>
     {% for passenger in passenger %}
     <option value="{{passenger.id}}">{{passenger.tickets_number}}</option>
     {% endfor %}
+</select-->
+<select name="Passengers" value="From" class="custom-select" style="font-size: 20px; ">
+        <option selected hidden>Passengers</option>
+  {% for ticket in tickets_ids %}
+  <option value="{{tickets_ids}}">{{ticket.tickets_ids}}</option>
+  {% endfor %}
 </select>
-
 <!--select  name="passengers" value="Passengers" class="custom-select" style="font-size: 20px;">
         <option selected hidden>Passengers</option>
         <option value="1">1</option>
