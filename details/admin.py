@@ -5,5 +5,5 @@ admin.site.register(Station)
 admin.site.register(Train)
 admin.site.register(Ticket)
 admin.site.register(Trip)
-#admin.site.register(Passenger)
+
 
