@@ -29,7 +29,7 @@ SECRET_KEY = '5@u0__$*ap9%y^8w^vl4_8kk=s4c-es2#$q8c129213=@6tm-4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1']
+ALLOWED_HOSTS = ['http://pokipoki2010.pythonanywhere.com']
 
 
 # Application definition
