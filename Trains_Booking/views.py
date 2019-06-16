@@ -1,12 +1,12 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from details.models import Station, Ticket, Passenger
+from details.models import Station, Ticket
 
 def homepage(request):
 	stations = Station.objects.all()
 	tickets = Ticket.objects.all()
-	passengers = Passenger.objects.all()
-	context = {'station': stations, 'ticket': tickets, 'passenger': passengers}
+	#passengers = Passenger.objects.all()
+	context = {'station': stations, 'ticket': tickets}
 	return render(request,'homepage.html', context)
 
 

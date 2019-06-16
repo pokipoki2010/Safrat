@@ -65,7 +65,7 @@ class Ticket(models.Model):
 
 
 
-class Passenger(models.Model):
+"""class Passenger(models.Model):
     TICKETS_NUMBER = (
         (1,'1'),
         (2,'2'),
@@ -82,7 +82,7 @@ class Passenger(models.Model):
     tickets_number = models.IntegerField(default=1, choices=TICKETS_NUMBER)
     #ticket_ptr = models.OneToOneField(null=True, auto_created=True, default='', on_delete=django.db.models.deletion.CASCADE, parent_link=True, primary_key=False, serialize=False, to='details.Ticket')
     def __str__(self):
-        return "{}".format(self.tickets_number)
+        return "{}".format(self.tickets_number)"""
 
 
 

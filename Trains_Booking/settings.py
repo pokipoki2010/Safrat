@@ -12,16 +12,9 @@ https://docs.djangoproject.com/en/2.1/ref/settings/
 
 import os
 
-def look_folder_tree(root):
-    result = ()
-    for dir_name, sub_dirs, file_names in os.walk(root):
-        for sub_dir_name in sub_dirs:
-            result += (os.path.join(dir_name, sub_dir_name),)
-    return result
 
 # Django settings for project.
 
-PROJECT_DIR = os.path.dirname(__file__)
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -34,9 +27,9 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '5@u0__$*ap9%y^8w^vl4_8kk=s4c-es2#$q8c129213=@6tm-4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -49,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'details',
+    'django.contrib.postgres',
 ]
 
 MIDDLEWARE = [
@@ -130,14 +124,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'staticfiles'),
-    'C:/Users/Mahmoud/Documents/GitHub/Safrat/staticfiles/'
+    os.path.join(BASE_DIR, 'static')
 ]
 
-STATIC_ROOT = 'C:/Users/Mahmoud/Documents/GitHub/Safrat/statics/'
-
-STATICFILES_FINDERS = [
-    'django.contrib.staticfiles.finders.FileSystemFinder',
-    'django.contrib.staticfiles.finders.AppDirectoriesFinder',
-]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
